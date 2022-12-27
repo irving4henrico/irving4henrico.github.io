@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Madison
-subtitle: Teacher, Father, and Leader
+subtitle: Husband, Father, Teacher
 
 ---
 
