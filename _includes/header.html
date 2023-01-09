@@ -4,7 +4,7 @@
 
 {% if page.cover-img or page.title %}
 
-<!-- {% if page.cover-img %}
+{% if page.cover-img %}
   <div id="header-big-imgs" data-num-img={% if page.cover-img.first %}{{ page.cover-img.size }}{% else %}1{% endif %}
     {% for bigimg in page.cover-img %}
     {% assign imgnum = forloop.index %}
@@ -18,14 +18,14 @@
     {% endfor %}
     {% endfor %}
   ></div>
-{% endif %} -->
+{% endif %}
 
 <header class="header-section {% if page.cover-img %}has-img{% endif %}">
 {% if page.cover-img %}
 <div class="big-img intro-header">
   <div class="container-md">
     <div class="row">
-      <div class="col-xl-6 col-lg-6 col-md-10">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="{{ include.type }}-heading">
           <h1>{% if page.title %}{{ page.title | strip_html }}{% else %}<br/>{% endif %}</h1>
           {% if page.subtitle %}
@@ -36,10 +36,20 @@
               <h2 class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</h2>
             {% endif %}
           {% endif %}
+
+          {% if include.type == "post" %}
+            <span class="post-meta">Posted on {{ page.date | date: date_format }}</span>
+            {% if page.last-updated %}
+              <span class="post-meta">
+                <span class="d-none d-md-inline middot">&middot;</span>
+                Last updated {{ page.last-updated | date: date_format }}
+              </span>
+            {% endif %}
+            {% if page.readtime %}
+              {% include readtime.html %}
+            {% endif %}
+          {% endif %}
         </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-10">
-        <img src="/assets/img/coverphoto.png" width="100%">
       </div>
     </div>
   </div>
