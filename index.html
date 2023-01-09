@@ -2,7 +2,20 @@
 layout: homepage
 title: Madison Irving for Henrico County School Board
 subtitle: Three Chopt District
-cover-img="/assets/img/coverphoto.png"
 ---
-
+<div class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}" role="main">
+  <div class="row">
+    <div class="{% if page.full-width %} col {% else %} col-xl-6 col-lg-6 col-md-10 {% endif %}">
+      <header class="header-section {% if page.cover-img %}has-img{% endif %}">
+                <h1>Madison Irving for Henrico County School Board</h1>
+                    <hr class="small">
+            <span class="{{ include.type }}-subheading">Three Chopt District</span>
+        
+     </header>
+    </div>
+    <div class="{% if page.full-width %} col {% else %} col-xl-6 col-lg-6 col-md-10 {% endif %}">
+      <img src="/assets/img/coverphoto.png" width="100%">
+    </div>
+  </div>
+</div>
 <h3>Madison Irving is a husband, father, teacher, and champion for teachers and students in Henrico County with a positive vision for the future of our schools.</h3>
